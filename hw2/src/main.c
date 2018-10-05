@@ -11,12 +11,13 @@
 #include "write.h"
 #include "normal.h"
 #include "sort.h"
-
+#include "error.h"
+#include "report.h"
 /*
  * Course grade computation program
  */
 
-#define REPORT          0
+#define REPORT          'r'
 #define COLLATE         1
 #define FREQUENCIES     2
 #define QUANTILES       3
@@ -64,11 +65,12 @@ static struct option_info {
                   "Suppress printing of students' names."},
  {SORTBY,         "sortby",    'k',      required_argument, "key",
                   "Sort by {name, id, score}."}
+
 };
 
-#define NUM_OPTIONS (14)
+#define NUM_OPTIONS (13)
 
-static char *short_options = "";
+static char *short_options = "rcank:";
 static struct option long_options[NUM_OPTIONS];
 
 static void init_options() {
@@ -103,6 +105,7 @@ char *argv[];
         while(optind < argc) {
             if((optval = getopt_long(argc, argv, short_options, long_options, NULL)) != -1) {
                 switch(optval) {
+
                 case REPORT: report++; break;
                 case COLLATE: collate++; break;
                 case TABSEP: tabsep++; break;
@@ -164,7 +167,8 @@ char *argv[];
         fprintf(stderr, "Calculating statistics...\n");
         s = statistics(c);
         if(s == NULL) fatal("There is no data from which to generate reports.");
-        normalize(c, s);
+        //normalize(c, s);
+        normalize(c);
         composites(c);
         sortrosters(c, comparename);
         checkfordups(c->roster);
@@ -184,7 +188,7 @@ char *argv[];
         if(summaries) reportquantilesummaries(stdout, s);
         if(histograms) reporthistos(stdout, c, s);
         if(scores) reportscores(stdout, c, nonames);
-        if(tabsep) reporttabs(stdout, c, nonames);
+        if(tabsep) reporttabs(stdout, c);
 
         fprintf(stderr, "\nProcessing complete.\n");
         printf("%d warning%s issued.\n", warnings+errors,

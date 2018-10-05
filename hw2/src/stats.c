@@ -10,7 +10,8 @@
 #include "gradedb.h"
 #include "stats.h"
 #include "allocate.h"
-
+#include "error.h"
+//char *memerr = "Unable to allocate memory.";
 Stats *statistics(c)
 Course *c;
 {
@@ -161,7 +162,7 @@ Freqs *count_score(scp, afp)
 Score *scp;
 Freqs *afp;
 {
-        Freqs *fp, *sfp;
+        Freqs *fp, *sfp=NULL;
 
         for(fp = afp; fp != NULL; sfp = fp, fp = fp->next) {
                 if(fp->score == scp->grade) {
@@ -185,6 +186,7 @@ Freqs *afp;
                 } else continue;
         }
         if(sfp == NULL) {       /* insertion into empty list */
+                sfp = newfreqs();
                 sfp->next = NULL;
                 sfp->score = scp->grade;
                 sfp->count = 1;

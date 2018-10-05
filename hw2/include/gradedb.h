@@ -72,7 +72,7 @@ typedef struct Assignment {
         struct Assignment *next;        /* Next assignment in course */
 } Assignment;
 
-typedef struct {
+typedef struct Course{
         Id number;                      /* Course number */
         Name title;                     /* Course title */
         Professor *professor;           /* Professor in charge of course */

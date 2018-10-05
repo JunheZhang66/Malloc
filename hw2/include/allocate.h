@@ -16,5 +16,8 @@ Classstats *newclassstats();
 Sectionstats *newsectionstats();
 Stats *newstats();
 Ifile *newifile();
-
-char *memerr = "Unable to allocate memory.";
+extern char *memerr;
+// #ifndef MEMERR
+// #define MEMERR
+// char *memerr = "Unable to allocate memory.";
+// #endif

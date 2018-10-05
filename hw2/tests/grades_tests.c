@@ -5,7 +5,8 @@
 #include "write.h"
 #include "sort.h"
 #include "stats.h"
-
+#include "normal.h"
+#include "report.h"
 #define TEST_FILE "cse307.dat"
 #define COLLATED_REF "rsrc/cse307.collated"
 #define TABSEP_REF "rsrc/cse307.tabsep"
@@ -61,7 +62,7 @@ Test(basic_suite, tabsep_test) {
     sortrosters(c, comparename);
     FILE *f = fopen(TABSEP_OUTPUT, "w");
     cr_assert_neq(f, NULL, "Error opening test output file.\n");
-    reporttabs(f, c);
+    reporttabs(f,c);
     fclose(f);
     char cmd[100];
     sprintf(cmd, "cmp %s %s", TABSEP_OUTPUT, TABSEP_REF);

@@ -6,12 +6,14 @@
 #include <stddef.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 #include "global.h"
 #include "gradedb.h"
 #include "stats.h"
 #include "allocate.h"
 #include "read.h"
-
+#include "error.h"
+#include "read.h"
 /*
  * Input file stack
  */
@@ -22,7 +24,7 @@ Ifile *ifile;
  * Token readahead buffer
  */
 
-char tokenbuf[32];
+char tokenbuf[64];
 char *tokenptr = tokenbuf;
 char *tokenend = tokenbuf;
 
@@ -44,6 +46,7 @@ char *root;
         gobbleblanklines();
         expecteof();
         fclose(ifile->fd);
+        //free(ifile);
         fprintf(stderr, " ]\n");
         return(c);
 }
@@ -526,10 +529,14 @@ void advanceeol()
                         break;
                 }
                 *tokenend++ = c;
+                //*tokenend=c;
+                //tokenend++;
         }
         if(c == EOF)
                 fatal("(%s:%d) Incomplete line at end of file.", ifile->name, ifile->line);
         *tokenend++ = '\0';
+        //*tokenend='\0';
+        //fclose(ifile->fd);
 }
 
 /*
@@ -602,13 +609,16 @@ void previousfile()
         Ifile *prev;
         if((prev = ifile->prev) == NULL)
                 fatal("(%s:%d) No previous file.", ifile->name, ifile->line);
-        free(ifile);
+        //free(ifile);
         fclose(ifile->fd);
+        free(ifile);
         ifile = prev;
+        //free(ifile);
         fprintf(stderr, " ]");
 }
 
-void pushfile(e)
+// void pushfile(int e)
+void pushfile()
 {
         Ifile *nfile;
         char *n;
@@ -621,7 +631,7 @@ void pushfile(e)
         }
         flushtoken();
         expectnewline();
-
+      
         nfile = newifile();
         nfile->prev = ifile;
         nfile->name = n;
@@ -631,5 +641,7 @@ void pushfile(e)
         ifile = nfile;
         fprintf(stderr, " [ %s", n);
         gobbleblanklines();
+
+        free(n);
 }
 

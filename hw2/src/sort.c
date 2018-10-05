@@ -3,7 +3,8 @@
 #include "sort.h"
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <string.h>
+#include "error.h"
 /*
  * Sort the Class and Section Rosters
  */
@@ -40,6 +41,7 @@ int compare();
         c->roster = sortroster(c->roster, getcnext, setcnext, compare);
         for(s = c->sections; s != NULL; s = s->next)
                 s->roster = sortroster(s->roster, getnext, setnext, compare);
+
 }
 
 Student *sortroster(s, gtnxt, stnxt, compare)
@@ -74,6 +76,7 @@ int compare();
         }
         stnxt(sp, NULL);
         sp = stab[0];
+        free(stab);
         return(sp);
 }
 
@@ -135,7 +138,7 @@ Student *s1, *s2;
 int compareid(s1, s2)
 Student *s1, *s2;
 {
-        int c;
+        //int c;
         return(strcmp(s1->id, s2->id));
 }
 

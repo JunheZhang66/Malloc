@@ -5,12 +5,13 @@
 
 #include<stddef.h>
 #include<stdio.h>
+#include <string.h>
 #include "global.h"
 #include "gradedb.h"
 #include "stats.h"
 #include "allocate.h"
 #include "normal.h"
-
+#include "error.h"
 /*
  * Normalize scores:
  *      For each student in the course roster,
@@ -20,9 +21,11 @@
  *              options set for that score and for the assignment.
  */
 
-void normalize(c, s)
-Course *c;
-Stats *s;
+//void normalize(Course *c, Stats* s)
+//Course *c;
+//Stats *s;
+void normalize(Course *c)
+//Course *c;
 {
         Student *stp;
         Score *rscp, *nscp;
@@ -143,12 +146,13 @@ Sectionstats *ssp;
                  */
 
                 for( ; fp != NULL; fp = fp->next) {
-                   if(s < fp->score)
+                   if(s < (fp->score))
                         return((float)fp->numless*100.0/n);
                    else if(s == fp->score)
                         return((float)fp->numless*100.0/n);
                 }
         }
+        return 0.0; // i add this return value
 }
 
 /*

@@ -556,9 +556,18 @@ void setOption(int h, int u, int d, int c, int f, int factor, int k, int key,int
  * @return 1 if the recoding completed successfully, 0 otherwise.
  */
 int recode(char **argv) {
-    AUDIO_HEADER ahp;
+    AUDIO_HEADER ah;
+
     //printf("%x\n", AUDIO_MAGIC);
-    read_header(&ahp);
+    //int address;
+    //address=&ahp;
+    AUDIO_HEADER *ahp=&ah;
+    //char* cp=(char*)ahp;
+    ahp->magic_number=AUDIO_MAGIC;
+    char* cp=(char*)ahp;
+    //printf("%x\n", ahp->magic_number);
+    printf("%x\n", *(cp+5));
+    //read_header(&ahp);
     return 0;
 }
 int read_header(AUDIO_HEADER *hp)
