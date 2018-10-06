@@ -256,6 +256,16 @@ char *argv[];
         fprintf(stderr, "Producing reports...\n");
         //printf("%d\n", outfile);
         if(outfile==1){
+            if(report==1)
+            {
+                /* code */
+            
+                if(collate==0&&freqs==0&&quantiles==0&& summaries==0&&moments==0&&
+           scores==0 &&composite==0&& histograms==0&& tabsep==0){
+                    reportparams(stdout, ifile, c);
+                  }
+                
+            }
         reportparams(stderr, ifile, c);
     }
     else
@@ -280,7 +290,8 @@ char *argv[];
         fprintf(stderr, "\nProcessing complete.\n");
         if(outfile!=1){
         printf("%d warning%s issued.\n", warnings+errors,
-               warnings+errors == 1? " was": "s were");}
+               warnings+errors == 1? " was": "s were");
+        }
         //fclose(stderr);
         exit(errors ? EXIT_FAILURE : EXIT_SUCCESS);
 }
