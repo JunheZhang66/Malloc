@@ -520,9 +520,21 @@ void advancetoken()
 void advanceeol()
 {
         char c;
+        //int size=0;
         if(istoken()) error("(%s:%d) Flushing unread input token.", ifile->name, ifile->line);
         flushtoken();
         gobblewhitespace();
+        // while((c = getc(ifile->fd)) != EOF) {
+        //         if(c == '\n') {
+        //                 ungetc(c, ifile->fd);
+        //                 break;
+        //         }
+        //         size++;
+        //         //*tokenend=c;
+        //         //tokenend++;
+        // }
+        // int copy[size];
+        // *tokenend=copy;
         while((c = getc(ifile->fd)) != EOF) {
                 if(c == '\n') {
                         ungetc(c, ifile->fd);
