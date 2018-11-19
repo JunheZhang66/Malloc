@@ -1,0 +1,58 @@
+Successfully forked as daemon
+18 Nov 2018 21:08:24: PID file: spool/alice.pid
+18 Nov 2018 21:08:25: Accepted connection, fd = 7
+18 Nov 2018 21:08:30: Created stream for input
+18 Nov 2018 21:08:30: File type is 'png'
+18 Nov 2018 21:08:30: Saving data to file spool/alice_png_1542596910.620988
+18 Nov 2018 21:08:30: Created stream for output
+18 Nov 2018 21:08:30: Bytes received: 29
+18 Nov 2018 21:08:30: Connection terminated
+18 Nov 2018 21:12:34: Accepted connection, fd = 7
+18 Nov 2018 21:12:39: Created stream for input
+18 Nov 2018 21:12:39: File type is 'png'
+18 Nov 2018 21:12:39: Saving data to file spool/alice_png_1542597159.237204
+18 Nov 2018 21:12:39: Created stream for output
+18 Nov 2018 21:12:39: Bytes received: 29
+18 Nov 2018 21:12:39: Connection terminated
+18 Nov 2018 21:16:12: Accepted connection, fd = 7
+18 Nov 2018 21:16:17: Created stream for input
+18 Nov 2018 21:16:17: File type is 'png'
+18 Nov 2018 21:16:17: Saving data to file spool/alice_png_1542597377.425203
+18 Nov 2018 21:16:17: Created stream for output
+18 Nov 2018 21:16:17: Bytes received: 29
+18 Nov 2018 21:16:17: Connection terminated
+18 Nov 2018 21:18:48: Accepted connection, fd = 7
+18 Nov 2018 21:18:53: Created stream for input
+18 Nov 2018 21:18:53: File type is 'png'
+18 Nov 2018 21:18:53: Saving data to file spool/alice_png_1542597533.214535
+18 Nov 2018 21:18:53: Created stream for output
+18 Nov 2018 21:18:53: Bytes received: 29
+18 Nov 2018 21:18:53: Connection terminated
+18 Nov 2018 21:22:53: Accepted connection, fd = 7
+18 Nov 2018 21:22:58: Created stream for input
+18 Nov 2018 21:22:58: File type is 'png'
+18 Nov 2018 21:22:58: Saving data to file spool/alice_png_1542597778.796530
+18 Nov 2018 21:22:58: Created stream for output
+18 Nov 2018 21:22:58: Bytes received: 91
+18 Nov 2018 21:22:58: Connection terminated
+18 Nov 2018 21:27:12: Accepted connection, fd = 7
+18 Nov 2018 21:27:17: Created stream for input
+18 Nov 2018 21:27:17: File type is 'png'
+18 Nov 2018 21:27:17: Saving data to file spool/alice_png_1542598037.177127
+18 Nov 2018 21:27:17: Created stream for output
+18 Nov 2018 21:27:17: Bytes received: 91
+18 Nov 2018 21:27:17: Connection terminated
+18 Nov 2018 21:29:02: Accepted connection, fd = 7
+18 Nov 2018 21:29:07: Created stream for input
+18 Nov 2018 21:29:07: File type is 'png'
+18 Nov 2018 21:29:07: Saving data to file spool/alice_png_1542598147.228384
+18 Nov 2018 21:29:07: Created stream for output
+18 Nov 2018 21:29:07: Bytes received: 93
+18 Nov 2018 21:29:07: Connection terminated
+18 Nov 2018 21:46:23: Accepted connection, fd = 7
+18 Nov 2018 21:46:28: Created stream for input
+18 Nov 2018 21:46:28: File type is 'png'
+18 Nov 2018 21:46:28: Saving data to file spool/alice_png_1542599188.858235
+18 Nov 2018 21:46:28: Created stream for output
+18 Nov 2018 21:46:28: Bytes received: 14
+18 Nov 2018 21:46:28: Connection terminated
